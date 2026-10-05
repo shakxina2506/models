@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="{% url 'post_create' %}">new post</a>
+
+    {% for post in posts %}
+        <div>
+            <p>
+                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                |
+                <a href="{% url 'post_update' post.pk %}">Postni tahrirlash</a>
+                |
+                <a href="{% url 'post_delete' post.pk %}">o'chirish</a>
+            </p>
+        </div>
+    {% empty %}
+        <p>no posts</p>
+    {% endfor %}
+
+</body>
+</html>
